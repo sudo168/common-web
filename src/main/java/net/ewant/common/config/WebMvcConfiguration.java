@@ -1,6 +1,7 @@
 package net.ewant.common.config;
 
 import com.alibaba.fastjson.parser.ParserConfig;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import net.ewant.common.handler.EnumValueVisitor;
 import net.ewant.common.handler.JacksonEnumDeserializer;
 import net.ewant.common.interceptor.AccessTimeInterceptor;
@@ -51,6 +52,8 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter implements Appl
                 objectMapper = bean;
                 SimpleModule sm = new SimpleModule();
                 sm.addDeserializer(EnumValueVisitor.class, new JacksonEnumDeserializer());
+                sm.addSerializer(Long.class, ToStringSerializer.instance);
+                sm.addSerializer(Long.TYPE, ToStringSerializer.instance);
                 objectMapper.registerModule(sm);
             }
         }
