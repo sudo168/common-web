@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-  <classPathEntry location="D:\dev\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar" />
+  <classPathEntry location="D:\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar" />
 
   <context id="ewant-db" targetRuntime="MyBatis3">
   	<commentGenerator>    
@@ -13,32 +13,33 @@
     </commentGenerator>
     <!-- 数据库链接URL、用户名、密码 -->    
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://192.168.1.100:3306/sangong"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/bbh"
         userId="root"
-        password="123456" />
+        password="root" />
 
     <javaTypeResolver >
       <property name="forceBigDecimals" value="false" />
     </javaTypeResolver>
 	<!-- 生成模型的包名和位置 -->
-    <javaModelGenerator targetPackage="net.ewant.common.entity" targetProject="src/test/java">
+    <javaModelGenerator targetPackage="red.bbh.common.entity" targetProject="src/test/java">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
 	<!-- 生成的映射文件报名和位置 --> 
-    <sqlMapGenerator targetPackage="net.ewant.common.mapper"  targetProject="src/test/java">
+    <sqlMapGenerator targetPackage="red.bbh.common.mapper"  targetProject="src/test/java">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 	<!-- 生成DAO的包名和位置 --> 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="net.ewant.common.dao"  targetProject="src/test/java">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="red.bbh.common.dao"  targetProject="src/test/java">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
-    <table tableName="wallet" domainObjectName="Wallet"
+    <table tableName="user_info" domainObjectName="UserInfo"
     	enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
     		enableSelectByExample="false" selectByExampleQueryId="false" 
     			enableSelectByPrimaryKey="true" enableInsert="true" enableUpdateByPrimaryKey="true" 
     				enableDeleteByPrimaryKey="true">
+        <generatedKey column="user_id" sqlStatement="mysql" identity="true" />
 	    <!--<generatedKey column="app_id" sqlStatement="postgresql" identity="true" />-->
 	    <!-- <property name="useActualColumnNames" value="true"/>
 	    <generatedKey column="ID" sqlStatement="DB2" identity="true" />

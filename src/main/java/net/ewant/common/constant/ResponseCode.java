@@ -50,6 +50,9 @@ public enum ResponseCode implements ResponseCodeMessage{
     /**21开头表示邮箱相关异常*/
     MAIL_ADDRESS_NOT_MATCH("2101", "邮箱地址格式不正确"),
     MAIL_SEND_FAILED("2102", "邮件发送失败"),
+    PHONE_NOT_MATCH("2106", "手机号格式不正确"),
+    PHONE_SMS_SEND_FAILED("2107", "短信验证码发送失败"),
+    PHONE_SMS_CHECK_FAILED("2108", "短信验证码错误"),
 
     FILE_NOT_SUPPORT_UPLOAD_TYPE("2201", "不支持文件类型"),
     FILE_UPLOAD_SIZE_LIMITED("2202", "文件大小超出限制"),
